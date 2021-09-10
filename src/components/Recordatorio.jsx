@@ -6,7 +6,7 @@ class Recordatorio extends React.Component {
             <div className="recordatorio">
                 <p>Selección anterior: {this.props.opcionPrevia}</p>
                 <p>Historial de opciones elegidas:</p>
-                <ul>
+                <ul className="recordatorio-opciones">
                     {this.props.opcionesPrevias.map((opcion, index) => {
                         return <li key={index}>{opcion}</li>
                     })}

@@ -3,18 +3,25 @@ import Historia from "./components/Historia";
 import Opciones from "./components/Opciones";
 import Recordatorio from "./components/Recordatorio";
 
-import data from "./components/data.json";
+import info from "./components/data.json";
 
 
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      data: [],
       id: 1,
       letra: '',
       eleccionPrevia: '',
       historial: []
     }
+  }
+
+  componentWillMount = () => {
+    this.setState({
+      data: info
+    })
   }
 
   handleClick = (btnElegido) => {
@@ -32,7 +39,7 @@ class App extends React.Component {
   }
 
   render() {
-    const historiaElegida = data.find((historia) => historia.id == this.state.id + this.state.letra)
+    const historiaElegida = this.state.data.find((historia) => historia.id == this.state.id + this.state.letra)
 
     return (
       <div className="layout">
